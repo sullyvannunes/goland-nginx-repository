@@ -6,18 +6,12 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/login", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("POST /login", func(w http.ResponseWriter, r *http.Request) {
 		log.Println(r.URL)
 		log.Println(r.Method)
 
 		w.WriteHeader(http.StatusCreated)
 		w.Write([]byte("Executado com sucesso"))
-	})
-
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		log.Println(r.URL)
-		w.WriteHeader(http.StatusCreated)
-		w.Write([]byte("Hello hello"))
 	})
 
 	log.Println("Running on port 8080")
